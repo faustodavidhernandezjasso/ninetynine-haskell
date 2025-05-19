@@ -8,7 +8,7 @@ Part of Ninety-Nine Haskell "Problems".  Some solutions are in "Solutions.P08".
 -}
 module Problems.P08 (compress) where
 
-import qualified Solutions.P08 as Solution
+-- import qualified Solutions.P08 as Solution
 
 -- | Eliminate consecutive duplicates of list elements.
 --
@@ -21,4 +21,10 @@ import qualified Solutions.P08 as Solution
 -- >>> compress "aaaabccaadeeee"
 -- "abcade"
 compress :: Eq a => [a] -> [a]
-compress = Solution.compress
+compress [] = []
+compress (x : xs) = compressAux' [x] xs
+
+compressAux' :: Eq a => [a] -> [a] -> [a]
+compressAux' zs [] = zs
+compressAux' zs (y : ys) | last zs == y = compressAux' zs ys
+                         | otherwise = compressAux' (zs ++ [y]) ys

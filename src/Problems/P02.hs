@@ -8,7 +8,7 @@ Part of Ninety-Nine Haskell "Problems".  Some solutions are in "Solutions.P02".
 -}
 module Problems.P02 (myButLast) where
 
-import qualified Solutions.P02 as Solution
+-- import qualified Solutions.P02 as Solution
 
 -- | Find the last but one element of a list.
 --
@@ -23,4 +23,6 @@ import qualified Solutions.P02 as Solution
 -- >>> myButLast ['a']
 -- Nothing
 myButLast :: [a] -> Maybe a
-myButLast = Solution.myButLast
+myButLast [x, _] = Just x
+myButLast [] = Nothing
+myButLast (_ : xs) = myButLast xs

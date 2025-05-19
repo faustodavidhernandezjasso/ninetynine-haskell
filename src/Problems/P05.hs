@@ -8,7 +8,7 @@ Part of Ninety-Nine Haskell "Problems".  Some solutions are in "Solutions.P05".
 -}
 module Problems.P05 (myReverse) where
 
-import qualified Solutions.P05 as Solution
+--import qualified Solutions.P05 as Solution
 
 -- | Reverse a list.
 --
@@ -20,4 +20,5 @@ import qualified Solutions.P05 as Solution
 -- >>> myReverse [1,2,3,4]
 -- [4,3,2,1]
 myReverse :: [a] -> [a]
-myReverse = Solution.myReverse
+myReverse [] = []
+myReverse (x : xs) = myReverse xs ++ [x]
